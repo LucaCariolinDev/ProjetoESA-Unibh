@@ -2,38 +2,34 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Cars', { 
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+    /**
+     * Add altering commands here.
+     *
+     * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     */
+     await queryInterface.createTable('CarEventCars', { 
+      //id: { }
+      CarId: { 
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      brand: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      model: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      year: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },      
-      horsePower: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Users',
-          key: 'id'
+          model: "Cars",
+          key: "id"
         },
         onDelete: 'CASCADE'
-      },                              
+      },
+      CarEventId: { 
+        primaryKey: true,
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "CarEvents",
+          key: "id"
+        },
+        onDelete: 'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

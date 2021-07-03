@@ -45,7 +45,6 @@ class CarController {
                     brand: req.body.brand,
                     model: req.body.model,
                     year: req.body.year,
-                    raceNumber: req.body.raceNumber,
                     horsePower: req.body.horsePower,
                     UserId: req.user.id
                 };
@@ -72,7 +71,6 @@ class CarController {
                     brand: req.body.brand,
                     model: req.body.model,
                     year: req.body.year,
-                    raceNumber: req.body.raceNumber,
                     horsePower: req.body.horsePower,
                     UserId: req.user.id
                 };
@@ -113,7 +111,6 @@ class CarController {
 
     async getAllByBrand (req,res) {
         let brand = '%' + req.query.brand + '%';
-        console.log(brand);
         try {
             const cars = await Car.findAll({
                 where: {
