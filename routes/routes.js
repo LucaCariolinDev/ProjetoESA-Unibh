@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const UserController = require("../controllers/UserController");
-const AtorController = require("../controllers/AtorController");
+const CarController = require("../controllers/CarController");
 const AuthController = require("../controllers/AuthController");
-const verificar = require('../middlewares/autenticacao');
+const {verificar, verificarAcessoUsuario} = require('../middlewares/autenticacao');
 const routes = Router();
 
 routes.get('/', (req,res) => {
@@ -22,21 +22,28 @@ routes.get('/', (req,res) => {
     res.status(200).json({mensagem: "Projeto Final ESA - Grupo: Luca Cariolin e Raphael Vieira Alves"})
 });
 
-routes.get("/oi", verificar(['usuario']), (req,res) => {
-    res.status(200).json({mensagem: "oi"});
-})
 
 routes.get("/oiAdmin", verificar([1]), (req,res) => {
     res.status(200).json({mensagem: "oi"});
 })
 
-
+//User
 routes.get('/users', UserController.getAll);
+routes.get('/users/getAllByName', UserController.getAllByName);
 routes.post('/user', UserController.create);
+routes.get('/user/:id', UserController.getById);
+routes.put('/user/:id', verificarAcessoUsuario(), UserController.update);
+routes.delete('/user/:id', verificarAcessoUsuario(), UserController.delete);
+
+//Auth
 routes.post('/login', AuthController.login);
-routes.post('/logout', AuthController.logout);
-routes.get('/atores', AtorController.getAll);
-routes.post('/ator', AtorController.create);
-routes.post('/ator/filme', AtorController.addFilmes);
+
+//Car
+routes.get('/cars', CarController.getAll);
+routes.get('/cars/getCarsByBrand', CarController.getAllByBrand);
+routes.post('/car', verificar([2]), CarController.create);
+routes.get('/car/:id', CarController.getById);
+routes.put('/car/:id', verificar([2]), CarController.update);
+routes.delete('/car/:id', verificar([2]), CarController.delete);
 
 module.exports = routes;

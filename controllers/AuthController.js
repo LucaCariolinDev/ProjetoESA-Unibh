@@ -14,7 +14,7 @@ class UserController {
             if(userResult != null){
                 const match = await bcrypt.compare(req.body.password, userResult.password);
                 if(match){
-                    const token = jwt.sign({id: userResult.id, userType: userResult.userType}, process.env.ACCESS_SECRET,
+                    const token = jwt.sign({id: userResult.id}, process.env.ACCESS_SECRET,
                     {
                             expiresIn: 1500
                     })
@@ -36,10 +36,6 @@ class UserController {
         catch(err) {
             return res.status(400).json({error: err.message});
         }
-    }
-
-    async logout(req,res){
-        res.status(200).json({auth: false, token: null})
     }
 }
 module.exports = new UserController();

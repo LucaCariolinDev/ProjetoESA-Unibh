@@ -8,11 +8,19 @@ module.exports = (sequelize,Sequelize) => {
 
     User.associate = (models) => {
         User.hasMany(models.Car, {
-        foreingKey: "userId",
-                as: "userid"
-            
+                foreingKey: "userId",
+                as: "userid",
+                onDelete: 'cascade'
         })
-    }  
+    }
+
+    User.prototype.toJSON =  function () {
+        var values = Object.assign({}, this.get());
+      
+        delete values.password;
+        return values;
+    }
+      
     
     return User
 }

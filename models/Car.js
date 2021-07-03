@@ -9,8 +9,7 @@ module.exports = (sequelize,Sequelize) => {
 
     Car.associate = (models) => {
         Car.belongsTo(models.User, {
-            foreingKey: 'userId',
-            as: 'userid'            
+            foreingKey: 'userId'         
         })
     }
     
