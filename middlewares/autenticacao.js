@@ -11,10 +11,10 @@ let verificar = function verificarJWT(roles) {
     
         jwt.verify(token, process.env.ACCESS_SECRET, function(erro,decoded) {
             if (erro) return res.status(400).json({mensagem: "Não autorizado", "err": erro});            
-            req.user = decoded;              
+            req.user = decoded;             
             let valido = false;
             roles.forEach(role => {
-                if (role == req.user.role) { 
+                if (role == req.user.userType) { 
                     valido = true
                 }
             });
