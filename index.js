@@ -15,5 +15,5 @@ app.use(bodyParser.json())
 app.use('/documentacao', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use(routes);
-app.listen(3000);
+app.listen(5000);
 
