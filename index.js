@@ -4,7 +4,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger_arquivo.json');
 var bodyParser = require('body-parser');
 
-require('dotenv').config({ path: './config/.env'});
+require('dotenv').config({ path: './.env'});
 
 const app = express();
 
