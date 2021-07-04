@@ -1,24 +1,26 @@
 {
     "development": {
-      "username": "root",
-      "password": "root",
-      "database": "race",
-      "host": "127.0.0.1",
+    "username": "fyiq479vmmf0518s",
+      "password": "pxhi7y4fnm4mddlg",
+      "database": "tckgytfwsv4vhxe7",
+      "host": "s465z7sj4pwhp7fn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "dialect": "mysql",
-      "port": 8889
+      "port": 3306
     },
     "test": {
-      "username": "root",
-      "password": "root",
-      "database": "race",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+        "username": "fyiq479vmmf0518s",
+        "password": "pxhi7y4fnm4mddlg",
+        "database": "tckgytfwsv4vhxe7",
+        "host": "s465z7sj4pwhp7fn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        "dialect": "mysql",
+        "port": 3306
     },
     "production": {
-      "username": "root",
-      "password": "root",
-      "database": "race",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+        "username": "fyiq479vmmf0518s",
+        "password": "pxhi7y4fnm4mddlg",
+        "database": "tckgytfwsv4vhxe7",
+        "host": "s465z7sj4pwhp7fn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        "dialect": "mysql",
+        "port": 3306
     }
   }
