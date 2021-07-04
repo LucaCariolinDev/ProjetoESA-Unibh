@@ -9,7 +9,7 @@ const docs = {
       "title": "API de Encontro Automotivo - Projeto ESA Unibh",
       "description": "Grupo: Luca Cariolin e Raphael Vieira Alves"
     },
-    "host": "localhost:3000",
+    "host": "https://nameless-caverns-12404.herokuapp.com",
     "basePath": "/",
     "tags": [],
     "schemes": [
