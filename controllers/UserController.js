@@ -3,9 +3,10 @@ const bcrypt = require('bcrypt');
 const { Op } = require("sequelize");
 
 class UserController {
-    /* definir métodos */
-
+    
+    // #swagger.tags = ['User']
     async getAll(req,res) {
+        
         try {
             const UsersResult = await User.findAll({              
             });
@@ -16,6 +17,7 @@ class UserController {
         }
     }
 
+    // #swagger.tags = ['User']
     async getById(req,res) {
         try {
             const user = await User.findByPk(req.params.id);
@@ -31,6 +33,7 @@ class UserController {
         }
     }
 
+    // #swagger.tags = ['User']
     async create(req,res) {
         try {
             const passwordHash = await bcrypt.hash(req.body.password, 8)
@@ -50,6 +53,7 @@ class UserController {
         }
     }
 
+    // #swagger.tags = ['User']
     async update(req,res) {
         try {
             const user = await User.findByPk(req.params.id);
@@ -73,6 +77,7 @@ class UserController {
         }
     }
 
+    // #swagger.tags = ['User']
     async delete (req,res) {
         try {
             const user = await User.findByPk(req.params.id);
@@ -89,6 +94,7 @@ class UserController {
         }
     }
 
+    // #swagger.tags = ['User']
     async getAllByName (req,res) {
         let name = '%' + req.query.name + '%';
         try {

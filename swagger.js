@@ -6,8 +6,8 @@ const docs = {
     "swagger": "2.0",
     "info": {
       "version": "1.0.0",
-      "title": "API de Exemplo de Documentação",
-      "description": "Esta é uma api documentada"
+      "title": "API de Encontro Automotivo - Projeto ESA Unibh",
+      "description": "Grupo: Luca Cariolin e Raphael Vieira Alves"
     },
     "host": "localhost:3000",
     "basePath": "/",
