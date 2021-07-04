@@ -12,9 +12,6 @@
     "http",
     "https"
   ],
-  "securityDefinitions": {
-    "apiKeyAuth": {}
-  },
   "consumes": [
     "application/json"
   ],
@@ -27,7 +24,7 @@
         "tags": [
           "ROTA PRINCIPAL"
         ],
-        "description": "Uma rota que retorna um Hello World",
+        "description": "Uma rota que retorna informações do grupo",
         "parameters": [],
         "responses": {
           "200": {
@@ -37,36 +34,23 @@
               "properties": {
                 "mensagem": {
                   "type": "string",
-                  "example": "Hello World"
+                  "example": "Projeto Final ESA - Grupo: Luca Cariolin e Raphael Vieira Alves"
                 }
               },
               "xml": {
                 "name": "main"
               }
             }
-          },
-          "401": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "mensagem": {
-                  "type": "string",
-                  "example": "Não Autorizado"
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
-            },
-            "description": "Rota não autorizou o acesso"
           }
         }
       }
     },
-    "/oiAdmin": {
+    "/processamentoparalelo": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Execução em Paralelo"
+        ],
+        "description": "Executa operação matemática em paralelo. Processo Pai envia (i+1) * 1000. Processo filho recebe (i+1) * 1000 e soma + 1.",
         "parameters": [],
         "responses": {
           "200": {
@@ -77,8 +61,10 @@
     },
     "/users": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Uma rota que retorna todos os usuários",
         "parameters": [],
         "responses": {
           "200": {
@@ -92,8 +78,10 @@
     },
     "/users/getAllByName": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Uma rota que retorna todos os usuários com o nome do usuário informado",
         "parameters": [
           {
             "name": "name",
@@ -116,8 +104,10 @@
     },
     "/user": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Uma rota que cria um usuário.",
         "parameters": [
           {
             "name": "obj",
@@ -153,8 +143,10 @@
     },
     "/user/{id}": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Uma rota que retorna um usuário pelo Id",
         "parameters": [
           {
             "name": "id",
@@ -176,8 +168,10 @@
         }
       },
       "put": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Uma rota que atualiza um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login.",
         "parameters": [
           {
             "name": "id",
@@ -220,8 +214,10 @@
         }
       },
       "delete": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Uma rota que excluí um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login.",
         "parameters": [
           {
             "name": "id",
@@ -245,8 +241,10 @@
     },
     "/login": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Uma rota que retorna para realizar o Login e obter o token JWT",
         "parameters": [
           {
             "name": "obj",
@@ -279,8 +277,10 @@
     },
     "/cars": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "description": "Uma rota que retorna todos os carros",
         "parameters": [],
         "responses": {
           "200": {
@@ -294,8 +294,10 @@
     },
     "/cars/getCarsByBrand": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "description": "Uma rota que retorna todos os carros com o nome da marca informado",
         "parameters": [
           {
             "name": "brand",
@@ -318,8 +320,10 @@
     },
     "/car": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "description": "Uma rota que cria o carro de um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 2) do tipo Proprietário de Veículo",
         "parameters": [
           {
             "name": "obj",
@@ -355,8 +359,10 @@
     },
     "/car/{id}": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "description": "Uma rota que retorna o carro pelo Id",
         "parameters": [
           {
             "name": "id",
@@ -378,8 +384,10 @@
         }
       },
       "put": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "description": "Uma rota que atualiza o carro de um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 2) do tipo Proprietário de Veículo",
         "parameters": [
           {
             "name": "id",
@@ -422,8 +430,10 @@
         }
       },
       "delete": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "description": "Uma rota que deleta carro de um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 2) do tipo Proprietário de Veículo",
         "parameters": [
           {
             "name": "id",
@@ -447,8 +457,10 @@
     },
     "/carsevents": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que retorna todos os eventos automotivos",
         "parameters": [],
         "responses": {
           "200": {
@@ -462,8 +474,10 @@
     },
     "/carevent/{id}": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que retorna um evento automotivo pelo Id do evento",
         "parameters": [
           {
             "name": "id",
@@ -485,8 +499,10 @@
         }
       },
       "put": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que atualiza um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento",
         "parameters": [
           {
             "name": "id",
@@ -526,8 +542,10 @@
         }
       },
       "delete": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que excluí um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento",
         "parameters": [
           {
             "name": "id",
@@ -551,8 +569,10 @@
     },
     "/carsevents/getAllByEventName": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que retorna todos os carros com o nome do evento informado",
         "parameters": [
           {
             "name": "name",
@@ -575,8 +595,10 @@
     },
     "/carevent": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que adiciona um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento",
         "parameters": [
           {
             "name": "obj",
@@ -609,8 +631,10 @@
     },
     "/carevent/addCarIntoCarEvent": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "CarEvent"
+        ],
+        "description": "Uma rota que adiciona um carro a um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento",
         "parameters": [
           {
             "name": "obj",
@@ -640,32 +664,62 @@
     }
   },
   "definitions": {
-    "Time": {
+    "User": {
       "type": "object",
       "properties": {
-        "nome": {
+        "name": {
           "type": "string",
-          "example": "Cruzeirão Cabuloso"
+          "example": "Raphael"
         },
-        "sede": {
+        "email": {
           "type": "string",
-          "example": "Toca 3"
+          "example": "Raphael@hotmail.com"
+        },
+        "userType": {
+          "type": "number",
+          "example": 1
+        },
+        "password": {
+          "type": "string",
+          "example": "teste7878"
         }
       }
     },
-    "Pessoa": {
+    "Car": {
       "type": "object",
       "properties": {
-        "nome": {
+        "brand": {
           "type": "string",
-          "example": "John Snow"
+          "example": "Fiat"
         },
-        "serie": {
+        "model": {
           "type": "string",
-          "example": "GoT"
+          "example": "Argo"
         },
-        "time": {
-          "$ref": "#/definitions/Time"
+        "year": {
+          "type": "number",
+          "example": 2018
+        },
+        "horsePower": {
+          "type": "number",
+          "example": 100
+        }
+      }
+    },
+    "CarEvent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Encontro da Frota do Raphael"
+        },
+        "location": {
+          "type": "string",
+          "example": "Postinho do Racha(Shell)"
+        },
+        "duration": {
+          "type": "number",
+          "example": 3
         }
       }
     }

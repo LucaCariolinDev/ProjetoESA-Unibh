@@ -18,22 +18,23 @@ const docs = {
     ],
     "consumes": ["application/json"],
     "produces": ["application/json"],
-    "securityDefinitions": {
-        "apiKeyAuth": {
-          
-        }
-    },
     "definitions": {
-        Time: {
-            nome: "Cruzeirão Cabuloso",
-            sede: "Toca 3"
+        User: {
+            name: "Raphael",
+            email: "Raphael@hotmail.com",
+            userType: 1,
+            password: "teste7878"
         },
-        Pessoa: {
-            nome: "John Snow",
-            serie: "GoT",
-            time: {
-                $ref: '#/definitions/Time'
-            },
+        Car: {
+            brand: "Fiat",
+            model: "Argo",
+            year: 2018,
+            horsePower: 100
+        },
+        CarEvent: {
+            name: "Encontro da Frota do Raphael",
+            location: "Postinho do Racha(Shell)",
+            duration: 3
         }
     }
 };

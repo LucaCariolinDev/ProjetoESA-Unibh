@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 class UserController {
 
     async login(req,res) {
+        // #swagger.tags = ['Auth']
+        // #swagger.description = 'Uma rota que retorna para realizar o Login e obter o token JWT'
         try {
             const userResult = await User.findOne({
                 where:{

@@ -5,6 +5,8 @@ class CarController {
     /* definir métodos */
 
     async getAll(req,res) {
+        // #swagger.tags = ['Car']
+        // #swagger.description = 'Uma rota que retorna todos os carros'
         try {
             const cars = await Car.findAll({
                 include: [{
@@ -20,6 +22,8 @@ class CarController {
     }
 
     async getById(req,res) {
+        // #swagger.tags = ['Car']
+        // #swagger.description = 'Uma rota que retorna o carro pelo Id'
         try {
             const car = await Car.findByPk(req.params.id, {
                 include: [{
@@ -40,6 +44,8 @@ class CarController {
     }
 
     async create(req,res) {
+        // #swagger.tags = ['Car']
+        // #swagger.description = 'Uma rota que cria o carro de um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 2) do tipo Proprietário de Veículo'
         try {
             let car = {
                     brand: req.body.brand,
@@ -57,6 +63,8 @@ class CarController {
     }
 
     async update(req,res) {
+        // #swagger.tags = ['Car']
+        // #swagger.description = 'Uma rota que atualiza o carro de um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 2) do tipo Proprietário de Veículo'
         try {
             const carOld = await Car.findOne({
                 where: {
@@ -87,6 +95,8 @@ class CarController {
     }
 
     async delete (req,res) {
+        // #swagger.tags = ['Car']
+        // #swagger.description = 'Uma rota que deleta carro de um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 2) do tipo Proprietário de Veículo'
         try {
             const car = await Car.findOne({
                 where: {
@@ -110,6 +120,8 @@ class CarController {
     }
 
     async getAllByBrand (req,res) {
+        // #swagger.tags = ['Car']
+        // #swagger.description = 'Uma rota que retorna todos os carros com o nome da marca informado'
         let brand = '%' + req.query.brand + '%';
         try {
             const cars = await Car.findAll({

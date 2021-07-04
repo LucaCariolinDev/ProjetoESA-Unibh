@@ -5,6 +5,8 @@ class CarEventController {
     /* definir métodos */
 
     async getAll(req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que retorna todos os eventos automotivos'
         try {
             const carEventResult = await CarEvent.findAll({
                 include: [{
@@ -23,6 +25,8 @@ class CarEventController {
     }
 
     async getById(req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que retorna um evento automotivo pelo Id do evento'
         try {
             const carEvent = await CarEvent.findByPk(req.params.id, {
                 include: [{
@@ -46,6 +50,8 @@ class CarEventController {
     }
 
     async getAllByEventName(req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que retorna todos os carros com o nome do evento informado'
         let name = '%' + req.query.name + '%';
         try {
             const carsEvents = await CarEvent.findAll({
@@ -74,6 +80,8 @@ class CarEventController {
     }
 
     async addCar(req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que adiciona um carro a um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento'
         try {
             let carEvent = await CarEvent.findByPk(req.body.carEventId);
             if (!carEvent) {
@@ -96,6 +104,8 @@ class CarEventController {
     }
 
     async create(req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que adiciona um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento'
         try {
             let carEvent = {
                     name: req.body.name,
@@ -111,6 +121,8 @@ class CarEventController {
     }
 
     async update(req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que atualiza um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento'
         try {
             const carEventOld = await CarEvent.findByPk(req.params.id);
             if (carEventOld) {
@@ -132,6 +144,8 @@ class CarEventController {
     }
 
     async delete (req,res) {
+        // #swagger.tags = ['CarEvent']
+        // #swagger.description = 'Uma rota que excluí um evento automotivo. IMPORTANTE!! -> Deve utilar o token obtido no login. E ser usuário(userType == 1) do tipo Organizador de Evento'
         try {
             const carEvent = await CarEvent.findByPk(req.params.id);
             if (carEvent) {                

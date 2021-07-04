@@ -4,8 +4,10 @@ const { Op } = require("sequelize");
 
 class UserController {
     
-    // #swagger.tags = ['User']
+    
     async getAll(req,res) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Uma rota que retorna todos os usuários'
         
         try {
             const UsersResult = await User.findAll({              
@@ -17,8 +19,11 @@ class UserController {
         }
     }
 
-    // #swagger.tags = ['User']
+    
     async getById(req,res) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Uma rota que retorna um usuário pelo Id'
+
         try {
             const user = await User.findByPk(req.params.id);
             if(user){
@@ -33,8 +38,11 @@ class UserController {
         }
     }
 
-    // #swagger.tags = ['User']
+    
     async create(req,res) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Uma rota que cria um usuário.'
+
         try {
             const passwordHash = await bcrypt.hash(req.body.password, 8)
             //userType = 1 (Organizador)
@@ -53,8 +61,11 @@ class UserController {
         }
     }
 
-    // #swagger.tags = ['User']
+    
     async update(req,res) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Uma rota que atualiza um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login.'
+
         try {
             const user = await User.findByPk(req.params.id);
             if (user) {
@@ -77,8 +88,11 @@ class UserController {
         }
     }
 
-    // #swagger.tags = ['User']
+    
     async delete (req,res) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Uma rota que excluí um usuário. IMPORTANTE!! -> Deve utilar o token obtido no login.'
+        
         try {
             const user = await User.findByPk(req.params.id);
             if (user) {                
@@ -94,8 +108,10 @@ class UserController {
         }
     }
 
-    // #swagger.tags = ['User']
+    
     async getAllByName (req,res) {
+        // #swagger.tags = ['User']
+        // #swagger.description = 'Uma rota que retorna todos os usuários com o nome do usuário informado'
         let name = '%' + req.query.name + '%';
         try {
             const users = await User.findAll({
